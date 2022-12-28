@@ -1,1 +1,157 @@
-नमस्ते </br> வணக்கம் </br> hello
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href='https://fonts.googleapis.com/css?family=B612' rel='stylesheet'>
+
+    <style>
+        .date {
+            font-size: 2em;
+            font-weight: bold;
+            color: black;
+            text-align: center;
+        }
+
+        /* Add some style to the clock */
+        .clock {
+            font-family: 'B612', sans-serif;
+            /* Use the B612 font */
+            font-size: 3em;
+            font-weight: bold;
+            color: black;
+            text-align: center;
+            background: linear-gradient(to right, #FFC371, #FF5F6D);
+            /* Create a gradient from orange to pink */
+            /* background-image: linear-gradient(to right, #FFC371, #FF5F6D); */
+            /* Add a gradient to the background */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3);
+            /* Add a box shadow */
+            transition: color 0.5s ease;
+            /* Add a transition to the color of the text */
+        }
+
+        /* Change the color of the text when the time changes */
+        .clock:hover {
+            color: white;
+        }
+
+        /* Use media queries to adjust the layout for different screen sizes */
+        @media (max-width: 600px) {
+            .clock {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="clock">
+        <!-- Display the current time -->
+        <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span> <span
+            id="ampm">AM</span></br>
+        <!-- Display the current date -->
+        <!-- <span id="month"></span> <span id="day"></span>, <span id="year"></span> -->
+    </div>
+
+    <script>
+        // Select the elements for the hours, minutes, seconds, and AM/PM
+        const hoursElement = document.querySelector('#hours');
+        const minutesElement = document.querySelector('#minutes');
+        const secondsElement = document.querySelector('#seconds');
+        const ampmElement = document.querySelector('#ampm');
+
+        function setTime() {
+            // Get the current time
+            const now = new Date();
+            let hours = now.getHours();
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+
+            // Select the elements for the month, day, and year
+            const monthElement = document.querySelector('#month');
+            const dayElement = document.querySelector('#day');
+            const yearElement = document.querySelector('#year');
+
+
+            // Convert the hours to 12-hour format
+            if (hours > 12) {
+                hours -= 12;
+                ampm = 'PM';
+            } else if (hours === 0) {
+                hours = 12;
+                ampm = 'AM';
+            } else if (hours === 12) {
+                ampm = 'PM';
+            } else {
+                ampm = 'AM';
+            }
+
+            // Update the clock display
+            hoursElement.textContent = formatTime(hours);
+            minutesElement.textContent = formatTime(minutes);
+            secondsElement.textContent = formatTime(seconds);
+            ampmElement.textContent = ampm;
+        }
+
+
+
+
+        function formatTime(time) {
+            // Add a leading zero if the time is less than 10
+            return time < 10 ? `0${time}` : time;
+        }
+
+
+
+        function formatMonth(month) {
+            // Convert the month number to a month name
+            const monthNames = [
+                'January', 'February', 'March', 'April', 'May', 'June',
+                'July', 'August', 'September', 'October', 'November', 'December'
+            ];
+            return monthNames[month];
+        }
+
+        function formatDay(day) {
+            // Add a suffix to the day
+            if (day === 1 || day === 21 || day === 31) {
+                return `${day}st`;
+            } else if (day === 2 || day === 22) {
+                return `${day}nd`;
+            } else if (day === 3 || day === 23) {
+                return `${day}rd`;
+            } else {
+                return `${day}th`;
+            }
+        }
+
+        function setDate() {
+            // Get the current date
+            const now = new Date();
+            const month = now.getMonth();
+            const day = now.getDate();
+            const year = now.getFullYear();
+
+            // Update the date display
+            monthElement.textContent = formatMonth(month);
+            dayElement.textContent = formatDay(day);
+            yearElement.textContent = year;
+        }
+
+        // Set the initial time
+        setTime();
+
+        // Update the time every second
+        setInterval(setTime, 1000);
+
+        // Set the initial date
+        setDate();
+
+        // Update the date every day
+        setInterval(setDate, 86400000);  // 86400000 milliseconds = 1 day
+
+
+    </script>
+</body>
+
+</html>
