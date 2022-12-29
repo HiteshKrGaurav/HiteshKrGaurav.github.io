@@ -1,6 +1,6 @@
 @font-face {
   font-family: "b16";
-  src: url("B612/B612-Bold.ttf") format("truetype");
+  src: url("B612/B612-Regular.ttf") format("truetype");
 }
 
 /* Add some style to the clock */
@@ -29,7 +29,7 @@
 /* Use media queries to adjust the layout for different screen sizes */
 @media (max-width: 600px) {
   .clock {
-    font-size: 20em;
+    font-size: 2em;
   }
 }
 
