@@ -12,7 +12,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(1000, 444);
+  createCanvas(879,268);
   var density = displayDensity();
   pixelDensity(1);
   img.loadPixels();
