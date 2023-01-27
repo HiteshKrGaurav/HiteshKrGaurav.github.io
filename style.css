@@ -23,7 +23,7 @@
 
 /* Change the color of the text when the time changes */
 .clock:hover {
-  color: rgb(115, 255, 0);
+  color: rgb(200, 255, 200);
 }
 
 /* Use media queries to adjust the layout for different screen sizes */
