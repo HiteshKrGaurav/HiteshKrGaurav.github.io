@@ -17,7 +17,7 @@
   /* Add a gradient to the background */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3);
   /* Add a box shadow */
-  transition: color 2s ease;
+  transition: color 0.5s ease;
   /* Add a transition to the color of the text */
 }
 
