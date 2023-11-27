@@ -1,43 +1,43 @@
-@font-face {
-  font-family: "b16";
-  src: url("B612/B612-Regular.ttf") format("truetype");
-}
+body {
+        background-color: #fdf0d5;
+        }
 
-/* Add some style to the clock */
-.clock {
-  font-family: "b16", sans-serif;
-  /* Use the B612 font */
-  font-size: 5em;
-  font-weight: bold;
-  color: black;
-  text-align: center;
-  background: linear-gradient(to right, #9c87eb, #b8c959);
-  /* Create a gradient from orange to pink */
-  /* background-image: linear-gradient(to right, #FFC371, #FF5F6D); */
-  /* Add a gradient to the background */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3);
-  /* Add a box shadow */
-  transition: color 0.5s ease;
-  /* Add a transition to the color of the text */
-}
+        .heart {
+            background-color: #c1121f;
 
-/* Change the color of the text when the time changes */
-.clock:hover {
-  color: rgb(200, 255, 200);
-}
+                height: 100px;
+                    width: 100px;
+                        margin: 45%;
+                            top: 50%;
 
-/* Use media queries to adjust the layout for different screen sizes */
-@media (max-width: 600px) {
-  .clock {
-    font-size: 2em;
-  }
-}
+                                animation: beat 1s infinite alternate;
+                                }
 
-.devanagari {
-  font-family: "Arial", sans-serif;
-}
+                                .heart:before,
+                                .heart:after {
+                                    content: '';
+                                        background-color: #c1121f;
+                                            position: absolute;
+                                                height: 100px;
+                                                    width: 100px;
+                                                        border-radius: 50%;
+                                                        }
 
-/* .logo {
-  float: right;
-  margin: 0 0 20px 20px;
-} */
+                                                        .heart:after {
+                                                            left: 50px;
+                                                                top: 0;
+                                                                }
+                                                                .heart:before {
+                                                                    top: -50px;
+                                                                        left: 0;
+                                                                        }
+
+                                                                        @keyframes beat {
+                                                                            0% {
+                                                                                    transform: scale(1) rotate(-45deg);
+                                                                                        }
+                                                                                            100% {
+                                                                                                    transform: scale(1.1) rotate(-45deg);
+                                                                                                        }
+                                                                                                        }
+}
